@@ -17,8 +17,8 @@ public class ThreadTest02MethodReferece {
     public static Integer tickets = 100;
 
 
-    @SneakyThrows(Exception.class)
-    public void saleTickets() {
+//    @SneakyThrows(Exception.class)
+    public void saleTickets() throws InterruptedException {
 
         for (int i = 1; i <= 40; i++) {
             if (tickets > 0) {
@@ -35,7 +35,13 @@ public class ThreadTest02MethodReferece {
         ThreadTest02MethodReferece tTMR02 = new ThreadTest02MethodReferece();
 
         for (int i = 1; i <= 3; i++) {
-            new Thread(tTMR02::saleTickets).start();
+            new Thread(()->{
+                try {
+                    tTMR02.saleTickets();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
         }
 
     }
