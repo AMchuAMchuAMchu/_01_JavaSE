@@ -1,8 +1,10 @@
 package com.atguigu.SE8.ThreadTest;
 
+import com.sun.xml.internal.ws.api.ha.StickyFeature;
 import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Description==>TODO
@@ -23,9 +25,7 @@ public class ThreadEffectTest01 {
 
         TTT01 ttt01 = new TTT01();
 
-
         CountDownLatch countDownLatch = new CountDownLatch(12);
-
 
         for (int i = 0; i < 12; i++) {
 //            System.out.println("___");
@@ -51,17 +51,19 @@ public class ThreadEffectTest01 {
 
 }
 
-class TTT01 {
+class TTT01{
 
-    public static Integer tickets = 999999999;
+//    public static Integer tickets = 999999999;
 
-    public synchronized void saleT() {
+    public static AtomicInteger tickets = new AtomicInteger(999999999);
 
-        for (; ;) {
+    public void saleT() {
+
+        for (; ; ) {
 //        while (true){
 //            System.out.println(tickets--);
-            tickets--;
-            if (tickets <= 11) {//别写成tickets == 0 ,不然的话会因为虽然有现成到了0暂停了,但是的话其他线程的话会比一小依然是会执行下去的说^_^
+            tickets.decrementAndGet();
+            if (tickets.get() <= 0) {//别写成tickets == 0 ,不然的话会因为虽然有现成到了0暂停了,但是的话其他线程的话会比一小依然是会执行下去的说^_^
                 //并且的话会无限循环^_^
                 return;
             }
