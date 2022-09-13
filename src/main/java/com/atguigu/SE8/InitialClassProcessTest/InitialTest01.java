@@ -26,7 +26,6 @@ public class InitialTest01 {
 
         InitialTest01 initialTest01 = new InitialTest01();
 
-
     }
 
 }
