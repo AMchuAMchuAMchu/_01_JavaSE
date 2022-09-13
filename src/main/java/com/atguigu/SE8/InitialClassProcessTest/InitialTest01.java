@@ -14,11 +14,11 @@ public class InitialTest01 {
         System.out.println("俺是代码块...");
     }
 
-    static{
+    static {
         System.out.println("俺是静态代码块...");
     }
 
-    public InitialTest01(){
+    public InitialTest01() {
         System.out.println("俺是构造器代码...");
     }
 
