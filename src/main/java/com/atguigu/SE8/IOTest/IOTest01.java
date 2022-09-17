@@ -1,5 +1,7 @@
 package com.atguigu.SE8.IOTest;
 
+import org.junit.Test;
+
 import java.io.*;
 import java.util.Scanner;
 
@@ -9,8 +11,10 @@ import java.util.Scanner;
  * @author:02雪乃赤瞳楪祈雨宫天制作委员会 截图理解:0.0-0.0
  */
 public class IOTest01 {
-    public static void main(String[] args) throws IOException {
 
+
+    @Test
+    public void test01(){
         String path = "D:\\seldom\\rd\\Java_ProjectAll\\Java_ProjectReview\\_01_JavaSE\\java\\com\\atguigu\\SE8\\IOTest\\assets";
         File dir = new File(path+"\\42Guilty_crownED2.mp4");
 //        File file = new File(path+"\\anime.txt");
