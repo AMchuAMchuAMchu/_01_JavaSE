@@ -23,11 +23,11 @@ public class StringTrimTest {
 
         String input = scanner.nextLine();
 
-        System.out.println("客观您输入的长度是 >> "+input.length());
+        System.out.println("客观您输入的长度是 >> "+input.length()+"厘米");
 
         String result = input.trim();
 
-        System.out.println("处理之后的真实长度 >> "+result);
+        System.out.println("处理之后的真实长度 >> "+result.length()+"毫米");
 
     }
 
